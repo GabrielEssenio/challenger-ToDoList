@@ -1,16 +1,14 @@
 const express = require("express");
 const app = express();
-require('dotenv').config();
-const taskController = require("./src/Controllers/tasksToDo");
-
-app.use(express.json);
+require("dotenv").config();
+const tasksRouter = require("./src/routers/tasksRouter");
 const PORT = process.env.PORT || 8080;
+app.use(express.json);
 
 //TASK
-app.post("/tasks", taskController.createTask);
-app.get("/tasks", taskController.getAllTask)
+app.use("/user", tasksRouter);
 
-app.get('/', (req, res) => {
+app.get("/", (_req, res) => {
   res.send();
 });
 
