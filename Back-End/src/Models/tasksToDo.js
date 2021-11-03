@@ -5,4 +5,12 @@ const createTask = async (status, name, done) => {
   await db.collection("tasksToDo").insertOne({ status, name, done });
 };
 
-module.exports = { createTask };
+const getAllTask = async() =>{
+  const db = await connection();
+  const allTasks = await db.collection('tasksToDo')
+  .find()
+  .toArray();
+  return allTasks;
+}
+
+module.exports = { createTask, getAllTask };

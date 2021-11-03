@@ -11,4 +11,6 @@ const createTask = async (status, name, done) => {
   return await taskModel.createTask(status, name, done);
 };
 
-module.exports = { createTask };
+const getAllTask = async () => taskModel.getAllTask();
+
+module.exports = { createTask, getAllTask };
