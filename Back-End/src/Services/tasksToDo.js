@@ -6,6 +6,8 @@ const createTask = async (description, userId) => {
     description: Joi.string().required(),
   }).validate({ description });
   if (schema.error) return { message: schema.error, status: 401 };
+  const duplicate = await taskModel.verifyDuplicate(description);
+  if (duplicate) return { message: 'Task already create', status:401}
   const validate = await taskModel.createTask(description, userId);
   return { status: 201, message: validate };
 };

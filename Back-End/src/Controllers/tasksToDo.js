@@ -2,8 +2,8 @@ const taskService = require("../Services/tasksToDo");
 
 const createTask = async (req, res) => {
   const { description } = req.body;
-  const { _id: userId } = req.user;
-  // console.log(req.user);
+  const { id: userId } = req.user;
+  console.log(req.user);
   const newTask = await taskService.createTask(description, userId);
   res.status(newTask.status).json(newTask.message);
 };
