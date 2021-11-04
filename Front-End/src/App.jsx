@@ -1,13 +1,13 @@
 import "./App.css";
-import { Route, Switch } from "react-router";
-import { User, Login, Tasks } from "./pages/index";
+import { Route, Switch } from 'react-router';
+import { Users, Login, Tasks } from "./pages/index";
 
 function App() {
   return (
     <div className="App">
       <Switch>
-        <Route path="/user" component={User} />
-        <Route path="/login" component={Login} />
+        <Route exact path="/" component={Login} />
+        <Route path="/user" component={Users} />
         <Route path="/task" component={Tasks} />
       </Switch>
     </div>

@@ -7,12 +7,12 @@ const loginRouter = require("./src/routers/loginRouter");
 const PORT = process.env.PORT || 8080;
 app.use(express.json());
 
+//LOGIN
+app.use("/", loginRouter);
 //TASK
 app.use("/task", tasksRouter);
 //USER
 app.use("/user", usersRouter);
-//LOGIN
-app.use("/login", loginRouter);
 
 app.get("/", (_req, res) => {
   res.send();
