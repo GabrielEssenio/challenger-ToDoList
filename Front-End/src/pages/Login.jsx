@@ -1,21 +1,26 @@
-import React, { useContext } from "react";
-import { Redirect } from "react-router-dom";
-import Header from "../components/Header";
+import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
+import HeaderLogin from "../components/HeaderLogin";
+import axios from "axios";
 
 const Login = () => {
+
+  // const [newuser, setNewUser] = useState('');
+
+    const loginUser = async () => {
+      history.push("/task")
+    };
+   
+  const history = useHistory();
   return (
     <section>
-      <Header />
-      <h1>login</h1>
+      <HeaderLogin />
+      <h1>LOGIN</h1>
       <input type="email" placeholder="Email" required />
 
       <input type="password" placeholder="Password" required />
 
-      <button
-        type="button"
-        data-testid="login-submit-btn"
-        // onClick={ <Redirect to="/task" /> }
-      >
+      <button type="button" onClick={() => loginUser}>
         Entrar
       </button>
     </section>

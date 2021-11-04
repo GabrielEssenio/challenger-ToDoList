@@ -1,16 +1,16 @@
 import React from "react";
-import * as S from '../styles/HeaderStyle'
+import * as S from '../styles/HedaerTaskStyle'
 
-const Header = () => {
+const HeaderTask = () => {
   return (
       <S.navBarContainer>
           <S.ulBar>
             <S.liBar>
-              <S.aBar  href="user">Criar Usuário</S.aBar>
+              <S.aBar  href="">Sair📤️</S.aBar>
             </S.liBar>
           </S.ulBar>
       </S.navBarContainer>
   );
 };
 
-export default Header;
+export default HeaderTask;

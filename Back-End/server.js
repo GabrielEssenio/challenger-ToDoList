@@ -4,7 +4,9 @@ require("dotenv").config();
 const tasksRouter = require("./src/routers/tasksRouter");
 const usersRouter = require("./src/routers/usersRouter");
 const loginRouter = require("./src/routers/loginRouter");
+const cors = require("cors");
 const PORT = process.env.PORT || 8080;
+app.use(cors());
 app.use(express.json());
 
 //LOGIN
