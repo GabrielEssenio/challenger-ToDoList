@@ -6,7 +6,7 @@ const TaskListCard = ({ allTask }) => {
   const {description, done, status, } = allTask
 
   console.log(allTask);
-  const [checkDone, setCheckDone] = useState(done);
+  const [checkDone, setCheckDone,handleSelect] = useState(done);
 
   return (
     <div className="card blue">
@@ -16,7 +16,14 @@ const TaskListCard = ({ allTask }) => {
         onChange={() => setCheckDone(!checkDone)}
       />
       <h2>{description}</h2>
-      <h3>{status}</h3>
+      <select value={status} OnChange={handleSelect}>
+        <option name="pendente" value="pendente">Pendente</option>
+        <option name="andamento" value="andamento">Andamento</option>
+        <option name="pronto" selected value="pronto">
+          Pronto
+        </option>
+      </select>
+      <button>Apagar🗑️</button>
     </div>
   );
 };

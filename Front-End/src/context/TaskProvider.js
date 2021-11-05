@@ -8,6 +8,7 @@ const TasksProvider = ({ children }) => {
   });
   const [allTask, setAllTask] = useState([]);
   const [token, setToken] = useState("");
+  const [status, setStatus] = useState("");
 
   const handleChange = ({ target: { type, value } }) => {
     setUser({
@@ -15,6 +16,10 @@ const TasksProvider = ({ children }) => {
       [type]: value,
     });
   };
+
+  const handleSelect = ({target:{name,value}}) =>{
+    setStatus({[name]: value});
+  }
 
   const context = {
     setAllTask,
@@ -24,6 +29,9 @@ const TasksProvider = ({ children }) => {
     handleChange,
     token,
     setToken,
+    status,
+    setStatus,
+    handleSelect,
   };
 
   return (

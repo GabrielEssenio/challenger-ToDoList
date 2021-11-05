@@ -1,6 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import HeaderTask from "../components/HeaderTask";
 import TaskCard from "../components/TaskCard";
+import CreateTask from "../components/CreateTask";
 import TaskContext from "../context/TaskContext";
 import getTask from "../APIs/GetTasks";
 import { getFromLocalStorage } from "../helpers/localStorage";
@@ -21,6 +22,7 @@ const Tasks = () => {
     <div>
       <HeaderTask />
       <h1>Minhas Tarafas</h1>
+      <CreateTask/>
       <TaskCard tasks={allTask} />
     </div>
   );
