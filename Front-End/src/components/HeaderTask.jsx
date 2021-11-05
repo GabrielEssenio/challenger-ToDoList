@@ -6,7 +6,7 @@ const HeaderTask = () => {
       <S.navBarContainer>
           <S.ulBar>
             <S.liBar>
-              <S.aBar  href="">Sair📤️</S.aBar>
+              <S.aBar  href="/">Sair📤️</S.aBar>
             </S.liBar>
           </S.ulBar>
       </S.navBarContainer>

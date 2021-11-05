@@ -14,10 +14,28 @@ const getAllTaskByUser = async (req, res) => {
 };
 
 const updateTaskByUser = async (req, res) => {
+  const { id } = req.params;
   const { id: userId } = req.user;
   const { description } = req.body;
-  const updateTask = await taskService.updateTaskByUser(userId, description);
+  const updateTask = await taskService.updateTaskByUser(
+    userId,
+    id,
+    description
+  );
   return res.status(updateTask.status).json(updateTask.message);
 };
 
-module.exports = { createTask, getAllTaskByUser, updateTaskByUser };
+const deleteTaskByUser = async (req, res) => {
+  const { id } = req.params;
+
+  const { id: userId } = req.user;
+  const deleteTask = await taskService.deleteTaskByUser(userId, id);
+  return res.status(deleteTask.status).json(deleteTask.message);
+};
+
+module.exports = {
+  createTask,
+  getAllTaskByUser,
+  updateTaskByUser,
+  deleteTaskByUser,
+};

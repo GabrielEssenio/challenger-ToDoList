@@ -22,7 +22,9 @@ const Tasks = () => {
     <div>
       <HeaderTask />
       <h1>Minhas Tarafas</h1>
+      <div className="create-task">
       <CreateTask/>
+      </div>
       <TaskCard tasks={allTask} />
     </div>
   );

@@ -23,6 +23,7 @@ const TaskListCard = ({ allTask }) => {
           Pronto
         </option>
       </select>
+      <button>Editar✏️</button>
       <button>Apagar🗑️</button>
     </div>
   );

@@ -31,10 +31,32 @@ const updateTaskByUser = async (userId, description) => {
   return updateTask.value;
 };
 
-const verifyDuplicate = async (description) =>{
+const verifyDuplicate = async (description) => {
   const db = await connection();
-  const duplicate = await db.collection("tasksToDo").findOne({ description })
+  const duplicate = await db.collection("tasksToDo").findOne({ description });
   return duplicate !== null;
-}
+};
 
-module.exports = { createTask, getAllTaskByUser, updateTaskByUser, verifyDuplicate };
+const findTaskByUser = async (userId, id) => {
+  const db = await connection();
+  const findUser = await db.collection("tasksToDo").find({ userId }).toArray();
+  const findTask = findUser.filter((task) => id == task.id);
+  return findTask !== null;
+};
+
+const deleteTaskByUser = async (userId, id) => {
+  const db = await connection();
+  const deleteTask = await db
+    .collection("tasksToDo")
+    .findOneAndUpdate({ userId, id });
+  return deleteTask.value;
+};
+
+module.exports = {
+  createTask,
+  getAllTaskByUser,
+  updateTaskByUser,
+  verifyDuplicate,
+  findTaskByUser,
+  deleteTaskByUser
+};

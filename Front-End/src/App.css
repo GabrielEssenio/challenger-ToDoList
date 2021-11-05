@@ -74,6 +74,12 @@
   border-left: 10px solid #b3404a;
 }
 
+.create-task{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* https://programandosolucoes.dev.br/2021/06/22/card-html-css/ */
 
 @keyframes App-logo-spin {
