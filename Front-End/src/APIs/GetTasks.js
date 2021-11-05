@@ -2,11 +2,11 @@ import axios from "axios";
 
 const URL = "http://localhost:8080/task";
 
-const getTask = async () => {
+const getTask = async (Authorization) => {
   try {
     const { data } = await axios.get(URL, {
       headers: {
-        Authorization: 132,
+        Authorization
       },
     });
     return data;

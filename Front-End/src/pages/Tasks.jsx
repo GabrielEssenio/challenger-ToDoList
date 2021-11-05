@@ -1,16 +1,21 @@
 import React, { useEffect, useContext } from "react";
 import HeaderTask from "../components/HeaderTask";
 import TaskCard from "../components/TaskCard";
-import TaskContext from "./TaskContext";
-
-const URL = "http://localhost:8080/task";
+import TaskContext from "../context/TaskContext";
+import getTask from "../APIs/GetTasks";
+import { getFromLocalStorage } from "../helpers/localStorage";
 
 const Tasks = () => {
-  const { setAllTask, allTask,getTasks } = useContext(TaskContext);
+  const { setAllTask, allTask, token } = useContext(TaskContext);
 
   useEffect(() => {
+    const getTasks = async () => {
+      const newToken = getFromLocalStorage('token');
+      const getTasks = await getTask(newToken);
+      await setAllTask(getTasks);
+    };
     getTasks();
-  }, []);
+  },[]);
 
   return (
     <div>

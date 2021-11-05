@@ -1,31 +1,33 @@
 import React, { useState, useEffect } from "react";
 import TaskContext from "./TaskContext";
-import getTask from "../APIs/GetTasks";
 
 const TasksProvider = ({ children }) => {
-  const [newuser, setNewUser] = useState([]);
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
   const [allTask, setAllTask] = useState([]);
+  const [token, setToken] = useState("");
 
-    const getTasks = async () => {
-      const getTasks = await getTask();
-      await setAllTask(getTasks);
-    };
+  const handleChange = ({ target: { type, value } }) => {
+    setUser({
+      ...user,
+      [type]: value,
+    });
+  };
 
   const context = {
     setAllTask,
-    setNewUser,
+    user,
     allTask,
-    newuser,
-    getTasks,
+    setUser,
+    handleChange,
+    token,
+    setToken,
   };
 
   return (
-    <TaskContext.Provider
-      value={ context }
-    >
-      {children}
-    </TaskContext.Provider>
+    <TaskContext.Provider value={context}>{children}</TaskContext.Provider>
   );
-
 };
 export default TasksProvider;

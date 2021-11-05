@@ -13,7 +13,6 @@ const createUser = async (body) => {
   const verifyEmail = await userModel.getUserEmail(email);
   if (verifyEmail) return { message: "User already registered", status: 409 };
   const { id } = await userModel.createUser(body);
-  console.log(id);
   const token = createJWT({ id });
   return { message: token, status: 201 };
 };
