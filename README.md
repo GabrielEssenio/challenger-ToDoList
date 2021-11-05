@@ -20,8 +20,10 @@ $ npm install
 $ npm run dev
 
 # O servidor inciará na porta:8080
+```
 
 ### 🎲 Rodando o Front End (browser)
+
 
 ```bash
 
@@ -35,6 +37,7 @@ $ npm install
 $ npm start
 
 # O servidor inciará na porta:3000
+```
 
 ### 🛠 Tecnologias no Front-end
 
